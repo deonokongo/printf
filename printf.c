@@ -22,6 +22,9 @@ int print_string(char *character)
 {
 	int i, count;
 
+	if (character == NULL)
+		return (0);
+
 	count = 0;
 	for (i = 0; character[i] != '\0'; i++)
 		count += print_char((int)character[i]);
@@ -65,6 +68,8 @@ int specifier(char character, va_list ap)
 		count += print_string(va_arg(ap, char *));
 	else if (character == '%')
 		count += print_char('%');
+	else
+		count += print_char(va_arg(ap, int));
 	return (count);
 }
 
