@@ -1,4 +1,4 @@
-#include <unistd.h>
+#include "main.h"
 
 /**
  * print_hexadecimal - print numbers in hexadeximal format
