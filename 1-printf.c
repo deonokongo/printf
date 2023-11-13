@@ -1,3 +1,5 @@
+#include <unistd.h>
+
 /**
  * print_hexadecimal - print numbers in hexadeximal format
  * @n: integer
@@ -9,7 +11,11 @@ int print_hexadecimal(int n)
 	char *hex_chars = "0123456789abcdef";
 
 	if (n < 0)
-		return (count += write(1, "-", 1));
+	{
+		count += write(1, "-", 1);
+		count += print_hexadecimal(-n);
+		return (count);
+	}
 
 	if (n < 16)
 		return (count += write(1, &hex_chars[n], 1));
