@@ -10,8 +10,6 @@
  */
 int print_char(int n)
 {
-	if (n == NULL)
-		return (0);
 	return (write(1, &n, 1));
 }
 
@@ -43,9 +41,6 @@ int escape_char(char special_char, va_list ap)
 {
 	int count = 0;
 
-	if (special_char == NULL)
-		return (0);
-
 	if (special_char == 'n')
 		count = write(1, "\n", 1);
 	else if (special_char == 't')
@@ -67,9 +62,6 @@ int specifier(char character, va_list ap)
 {
 	int count = 0;
 
-	if (character == NULL)
-		return (0);
-
 	if (character == 'c')
 		return (count += print_char(va_arg(ap, int)));
 	else if (character == 's')
@@ -82,7 +74,8 @@ int specifier(char character, va_list ap)
 		count += print_decimal((long)va_arg(ap, int));
 	else if (character == 'x')
 		count += print_hexadecimal((long)va_arg(ap, unsigned int));
-	else if (character == 'o'
+	else if (character == 'o')
+		 count += octalToDecimal(va_arg(ap, int));
 	else
 		count += print_char(va_arg(ap, int));
 	return (count);
