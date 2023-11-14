@@ -15,5 +15,7 @@ int print_decimal(int n);
 int octalToDecimalRecursive(int octalNumber, int placeValue);
 int octalToDecimal(int octalNumber);
 int print_binary(unsigned int n);
+int print_positive(unsigned int n);
+int print_uppercase(int n);
 
 #endif
