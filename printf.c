@@ -76,6 +76,8 @@ int specifier(char character, va_list ap)
 		count += print_hexadecimal((long)va_arg(ap, unsigned int));
 	else if (character == 'o')
 		 count += octalToDecimal(va_arg(ap, int));
+	else if (character == 'b')
+		 count += print_binary(va_arg(ap, unsigned int));
 	else
 		count += print_char(va_arg(ap, int));
 	return (count);
